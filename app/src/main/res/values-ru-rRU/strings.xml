@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Книга рецептов</string>
+    <string name="addbtn" translatable="false">Добавить</string>
+    <string name="bakeryTitle">Выпечка</string>
+    <string name="dishesTitle" translatable="false">Главные блюда</string>
+    <string name="saladsTitle" translatable="false">Салаты</string>
+    <string name="soupTitle" translatable="false">Супы</string>
+    <string name="delfromlist" translatable="false">Удалить из списка</string>
+    <string name="recipeAdminTitle" translatable="false">Добавить новый рецепт \n(Заполните форму и нажмите Добавить)</string>
+    <string name="recipeAdminName">Введите название рецепта (30 Символ. Макс.)</string>
+    <string name="recipeAdminSelectCat" translatable="false">Выбрать категорию</string>
+    <string name="recipeAdminIngredients" translatable="false">Введите список ингредиентов (30 Строк Макс.)</string>
+    <string name="recipeAdminInstructions" translatable="false">Введите инструкции по приготовлению \n(30 Строк Макс.)</string>
+    <string name="recipeNameHint" translatable="false">Назв. рецепта (напр.: Cуп из Тыквы)</string>
+    <string name="recipeIngHint" translatable="false">Введите ингредиенты. \nнапр.: \n1 чашка кусочков тыквы. \n2 ст.л. растительного масла. \n3 чашки воды или бульона</string>
+    <string name="recipeInstHint">Введите инструкции.  \nнапр.:\n Довести до кипения.  \n Уменьшите огонь и варите 30 минут.</string>
+    <string name="addSubtitle" translatable="false">Добавить новый рецепт</string>
+    <string name="action_delete" translatable="false">Удалить выбранное</string>
+    <string name="delSubtitle" translatable="false">Удалить рецепт(ы)</string>
+    <string name="delete_missing" translatable="false">Ничего не выбрано для удаления.</string>
+    <string name="delete_confirm_msg" translatable="false">Вы уверены, что хотите удалить выбранные рецепт(ы)?</string>
+    <string name="loadError">Нет рецепта(ов) в файле для категории</string>
+    <string name="checkall">Выбрать всё</string>
+    <string name="uncheckall">Снять всё</string>
+    <string name="delete_title">Выберите рецепты для удаления</string>
+    <string name="notice">Уведомление</string>
+    <string name="adminMenuAdd">Добавить рецепт</string>
+    <string name="adminMenuDel" translatable="false">Удалить рецепт</string>
+    <!-- category dropdown list -->
+    <string-array name="category_array">
+        <item>Выпечка</item>
+        <item>Главные блюда</item>
+        <item>Салаты</item>
+        <item>Супы</item>
+    </string-array>
+</resources>

@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name" translatable="false">Book of recipes</string>
+    <string name="defaultName" translatable="false">[NO NAME]</string>
+    <string name="title_activity_recipe_admin" translatable="false">Recipe Admin</string>
+    <!-- button texts -->
+    <string name="addbtn" translatable="false">Add</string>
+    <string name="bakeryTitle" translatable="false">Bakery products</string>
+    <string name="dishesTitle" translatable="false">Main dishes</string>
+    <string name="saladsTitle" translatable="false">Salads</string>
+    <string name="soupTitle" translatable="false">Soups</string>
+    <string name="delfromlist" translatable="false"> Delete from list >> </string>
+
+    <!-- recipe add form -->
+    <string name="recipeAdminTitle">Add New Recipe\n(Fill out form and click Add)</string>
+    <string name="recipeAdminName" translatable="false">Enter Recipe Name (30 Chars. Max.)</string>
+    <string name="recipeAdminSelectCat" translatable="false">Select Category</string>
+    <string name="recipeAdminIngredients" translatable="false">Enter Ingredients List (30 Lines Max.)</string>
+    <string name="recipeAdminInstructions" translatable="false">Enter Preparation Instructions (30 Lines Max.)</string>
+    <string name="recipeNameHint" translatable="false">Enter recipe name (ex. Pumpkin Soup)</string>
+    <string name="recipeIngHint" translatable="false">Enter ingredients.\nex.\n1 cup blocks of pumpkin\n2 tbsp. vegetable oil\n3 cups water or broth</string>
+    <string name="recipeInstHint" translatable="false">Enter instructions.\nex.\nBring to boil.\nReduce heat and simmer for 30 minutes.</string>
+    <string name="action_next" translatable="false">Next</string>
+    <string name="addSubtitle" translatable="false">Add New Recipe</string>
+    <!-- delete page -->
+    <string name="action_delete" translatable="false">Delete Selected</string>
+    <string name="delSubtitle" translatable="false">Delete Recipe(s)</string>
+
+    <!-- messages and misc -->
+    <string name="delete_missing" translatable="false">Nothing selected to be deleted.</string>
+    <string name="delete_confirm_msg" translatable="false">\n\nAre you sure you want to delete selected recipe(s)?</string>
+    <string name="loadError" translatable="false">No recipe(s) on file for category </string>
+    <string name="notice" translatable="false">Notice</string>
+    <string name="checkall" translatable="false">Check All</string>
+    <string name="uncheckall" translatable="false">Uncheck All</string>
+    <string name="image" translatable="false">Image</string>
+    <string name="textline" translatable="false">(text object)</string>
+    <string name="ingredientsLabel" translatable="false">Ingredients:</string>
+    <string name="instructionsLabel" translatable="false">Instructions:</string>
+    <string name="delete_title" translatable="false">Select Recipes To Delete</string>
+    <string name="err" translatable="false">Error</string>
+    <string name="goBack" translatable="false">Please go back and check your entries.</string>
+    <string name="reqName" translatable="false">Recipe name is required.</string>
+    <string name="reqCat" translatable="false">Recipe category is required.</string>
+    <string name="reqIng" translatable="false">Recipe ingredients are required.</string>
+    <string name="reqInst" translatable="false">Recipe instructions are required.</string>
+    <!-- category dropdown list -->
+    <string-array name="category_array">
+        <item>Bakery products</item>
+        <item>Main dishes</item>
+        <item>Salads</item>
+        <item>Soups</item>
+    </string-array>
+    <!-- main menu texts -->
+    <string name="adminMenuAdd" translatable="false">Add Recipe</string>
+    <string name="adminMenuDel" translatable="false">Delete Recipe</string>
+    <string name="rloading" translatable="false">Loading…</string>
+    <string name="viewSubtitle" translatable="false">Recipe List</string>
+</resources>
