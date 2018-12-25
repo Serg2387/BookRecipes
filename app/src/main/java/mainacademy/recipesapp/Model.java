@@ -13,7 +13,6 @@ class Model {
         this.id = _id;
     }
 
-
     public String getName() {
         return this.name;
     }

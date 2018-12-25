@@ -6,16 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.io.IOException;
 import java.util.Objects;
-
 
 @SuppressWarnings("unused")
 public class MainActivity extends Common {
-
     private TextView _textView1;
+    public MainActivity() {
 
-    public MainActivity() throws IOException {
     }
 
     @Override
@@ -43,23 +40,22 @@ public class MainActivity extends Common {
         final Button dishesC = findViewById(R.id.dishesBTN);
         Objects.requireNonNull(dishesC).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // load dishes recipes
                 displayRecipes(getResources().getString(R.string.dishesTitle));
             }
         });
+
         final Button saladsC = findViewById(R.id.saladsBTN);
         Objects.requireNonNull(saladsC).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // load salads recipes
                 displayRecipes(getResources().getString(R.string.saladsTitle));
             }
         });
+
         final Button soupsC = findViewById(R.id.soupsBTN);
         Objects.requireNonNull(soupsC).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // load soups recipes
                 displayRecipes(getResources().getString(R.string.soupTitle));
             }
@@ -73,21 +69,18 @@ public class MainActivity extends Common {
         int cnt = rdb.GetRecipeCount(_cat);
 
         if(cnt >0) {
-
             Intent recipeView = new Intent(this, RecipePagerActivity.class);
             recipeView.putExtra("category", _cat);
             this.startActivity(recipeView);
         }else{
-            Alert ad = new Alert(getResources().getString(R.string.notice),
-                    getResources().getString(R.string.loadError),
-                    this);
+            Alert ad = new Alert(getResources()
+                    .getString(R.string.notice), getResources()
+                    .getString(R.string.loadError), this);
             ad.show();
         }
     }
 
 
-
-    //------------------------------------------------------
     @Override
     protected void onDestroy(){
         super.onDestroy();

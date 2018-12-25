@@ -9,7 +9,6 @@ import android.view.View;
 public abstract class Common extends AppCompatActivity {
     int menuID = R.menu.main_menu; // default
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(menuID, menu);
@@ -37,8 +36,8 @@ public abstract class Common extends AppCompatActivity {
                 deleteRecipe(this.getCurrentFocus());
                 break;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // if we got here, the user's action was not recognized.
+                // invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
         return false;

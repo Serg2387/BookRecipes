@@ -7,4 +7,5 @@
     tools:context=".RecipePagerActivity">
 
     <include layout="@layout/content_recipe_pager" />
+
 </android.support.constraint.ConstraintLayout>

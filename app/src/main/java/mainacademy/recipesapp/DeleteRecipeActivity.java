@@ -11,15 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
-
-
 import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class DeleteRecipeActivity extends Common {
     private RecipeDatabase rdb;
     private CustomAdapter adapter;
-
     private ListView lv;
     private Model[] modelItems;
 
@@ -50,12 +47,13 @@ public class DeleteRecipeActivity extends Common {
 
         int i = 0;
         recList.moveToFirst();
+
         // mark as unchecked initially
         while (!recList.isAfterLast()) {
             modelItems[i] = new Model(recList.getInt(0) + ": " + recList.getString(1), 0,
-                    recList.getInt(0)); // name = col 1, _id = col 0
+                    recList.getInt(0));
             // we need to store the DB _id in the listview so we can reference
-            // it when deleting recipes, rather than wasting efficiency querying by name
+            // it when deleting recipes
             i++;
             recList.moveToNext();
         }
@@ -73,10 +71,7 @@ public class DeleteRecipeActivity extends Common {
                 } else {
                     modelItems[position].setValue(0);
                 }
-
-                adapter.notifyDataSetChanged(); // found by trial & error, will check/uncheck
-                // necessary because we're overriding the OnItemClickListener which
-                // disables default checkbox toggle
+                adapter.notifyDataSetChanged();
             }
         });
 
@@ -84,7 +79,6 @@ public class DeleteRecipeActivity extends Common {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.delete_menu, menu);
         return true;
     }
@@ -96,21 +90,20 @@ public class DeleteRecipeActivity extends Common {
             case R.id.action_delete:
                 deleteRecipes();
                 return true;
-            //      case R.id.action_del_cancel:
-            //          finish();
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // if we got here, the user's action was not recognized.
+                // invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    // delete selected recipes (with confirmation first)
+    // delete selected recipes (with confirmation)
     // dialog listener calls the delete method
     private void deleteRecipes() {
         // confirm delete
         AlertDialog.Builder builder = new AlertDialog.Builder(DeleteRecipeActivity.this);
-        builder.setMessage(R.string.delete_confirm_msg).setPositiveButton("Yes", dialogClickListener)
+        builder.setMessage(R.string.delete_confirm_msg)
+                .setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
     }
 
@@ -134,9 +127,8 @@ public class DeleteRecipeActivity extends Common {
     private void deleteSelectedRecipes() {
         int idx;
         int cnt = 0;
-        // String delList = "";
-        // get list of checkmarked recipes
 
+        // get list of checkmarked recipes
         try {
 
             rdb = new RecipeDatabase(DeleteRecipeActivity.this);
@@ -150,16 +142,15 @@ public class DeleteRecipeActivity extends Common {
             }
 
         } catch (Exception ex) {
-            Alert ad = new Alert(getResources().getString(R.string.err),
-                    getResources().getString(R.string.delete_missing),
-                    this);
+            Alert ad = new Alert(getResources()
+                    .getString(R.string.err), getResources()
+                    .getString(R.string.delete_missing), this);
             ad.show();
         }
         finish();
     }
 
-    // selects all checkboxes by marking .value=1 to designate selected (checked)
-    // and refreshing listview.
+    // selects all checkboxes by marking to designate selected and refreshing listview
     public void selectAll(View v) {
         CheckBox sa = findViewById(R.id.selectAllCB);
         if (sa.isChecked()) {
@@ -168,14 +159,14 @@ public class DeleteRecipeActivity extends Common {
             for (idx = 0; idx < modelItems.length; idx++) {
                 modelItems[idx].setValue(1); // set as selected
             }
-            sa.setText(R.string.uncheckall); // toggle mode of cb
+            sa.setText(R.string.uncheckall); // toggle mode
         } else {
             // unselect all checkboxes
             int idx;
             for (idx = 0; idx < modelItems.length; idx++) {
                 modelItems[idx].setValue(0); // set as unselected
             }
-            sa.setText(R.string.checkall); // toggle mode of cb
+            sa.setText(R.string.checkall); // toggle mode
         }
         adapter.notifyDataSetChanged(); // force update on listview
     }
@@ -187,7 +178,6 @@ public class DeleteRecipeActivity extends Common {
             lv = null;
             adapter.clear();
             adapter = null;
-            // not sure if necessary, but can't hurt
             for (int x = 0; x < modelItems.length; x++) {
                 modelItems[x] = null;
             }

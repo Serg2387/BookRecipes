@@ -26,10 +26,6 @@ class DatabaseHelper  extends SQLiteOpenHelper {
     // Method is called during an upgrade of the database,
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion){
-            /*Log.w(DatabaseHelper.class.getName(),
-                    "Upgrading database from version " + oldVersion + " to "
-                            + newVersion + ", which will destroy all old data");
-                            */
         database.execSQL("DROP TABLE IF EXISTS recipes");
         onCreate(database);
     }

@@ -25,7 +25,6 @@ class Alert {
         alertDialog.setTitle(title);
         alertDialog.setMessage(msg);
 
-
         // add a button
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
@@ -33,6 +32,7 @@ class Alert {
                         dialog.dismiss();
                     }
                 });
+
         // create and show the alert dialog
         alertDialog.show();
     }

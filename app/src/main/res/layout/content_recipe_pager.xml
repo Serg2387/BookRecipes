@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,13 +9,11 @@
     tools:showIn="@layout/activity_recipe_pager">
 
     <android.support.v7.widget.Toolbar
-
         android:id="@+id/pagertoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constrainedHeight="true"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,7 +24,6 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:subtitleTextColor="#A0A080"
         app:titleTextColor="#FFFFFF" />
-
 
     <ScrollView
         android:layout_width="0dp"
@@ -118,8 +116,8 @@
                 android:maxLines="30"
                 android:text="@string/textline"
                 android:textSize="12sp" />
-        </LinearLayout>
 
+        </LinearLayout>
 
     </ScrollView>
 
@@ -130,7 +128,6 @@
         android:background="?attr/colorPrimary"
         android:gravity="center_vertical|center_horizontal"
         android:minHeight="?attr/actionBarSize"
-
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -171,13 +168,13 @@
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/image"
-
                 android:textAlignment="center"
                 app:srcCompat="@drawable/ic_action_forward"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="498dp" />
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
 
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
 
 </android.support.constraint.ConstraintLayout>

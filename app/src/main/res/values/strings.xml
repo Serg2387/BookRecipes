@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">Book of recipes</string>
     <string name="defaultName" translatable="false">[NO NAME]</string>
     <string name="title_activity_recipe_admin" translatable="false">Recipe Admin</string>
+
     <!-- button texts -->
     <string name="addbtn" translatable="false">Add</string>
     <string name="bakeryTitle" translatable="false">Bakery products</string>
@@ -21,6 +22,7 @@
     <string name="recipeInstHint" translatable="false">Enter instructions.\nex.\nBring to boil.\nReduce heat and simmer for 30 minutes.</string>
     <string name="action_next" translatable="false">Next</string>
     <string name="addSubtitle" translatable="false">Add New Recipe</string>
+
     <!-- delete page -->
     <string name="action_delete" translatable="false">Delete Selected</string>
     <string name="delSubtitle" translatable="false">Delete Recipe(s)</string>
@@ -43,6 +45,7 @@
     <string name="reqCat" translatable="false">Recipe category is required.</string>
     <string name="reqIng" translatable="false">Recipe ingredients are required.</string>
     <string name="reqInst" translatable="false">Recipe instructions are required.</string>
+
     <!-- category dropdown list -->
     <string-array name="category_array">
         <item>Bakery products</item>
@@ -50,6 +53,7 @@
         <item>Salads</item>
         <item>Soups</item>
     </string-array>
+
     <!-- main menu texts -->
     <string name="adminMenuAdd" translatable="false">Add Recipe</string>
     <string name="adminMenuDel" translatable="false">Delete Recipe</string>

@@ -27,11 +27,13 @@
     <string name="notice">Уведомление</string>
     <string name="adminMenuAdd">Добавить рецепт</string>
     <string name="adminMenuDel" translatable="false">Удалить рецепт</string>
-    <!-- category dropdown list -->
+
+    <!-- раскрывающийся список категорий -->
     <string-array name="category_array">
         <item>Выпечка</item>
         <item>Главные блюда</item>
         <item>Салаты</item>
         <item>Супы</item>
     </string-array>
+
 </resources>

@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import java.util.Objects;
 
 @SuppressWarnings("unused")
@@ -32,8 +31,7 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         menuID = R.menu.admin_menu;
-
-        setContentView(R.layout.activity_recipe_admin); // this
+        setContentView(R.layout.activity_recipe_admin);
 
         // setup toolbar stuff
         Toolbar toolbar = findViewById(R.id.my_toolbar);
@@ -88,24 +86,20 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
     }
 
     private void addListenerOnSpinnerItemSelection() {
-        Objects.requireNonNull(sp).setOnItemSelectedListener(new CustomOnItemSelectedListener()); // inner class
+        Objects.requireNonNull(sp).setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }
 
     @Override
     public void onClick(View v){
         if(v.getId() == R.id.saveBTN || v.getId() == R.id.saveBTN2) {
-            // make sure catSelected is not blank (should always have a value,
-            // though, default = bakery)
             if(!"".equals(catSelected) ) {
                 saveRecipe();
             }else{
-                // inform category must be selected. It should have a default of Bakery, so
-                // this code should never be called, but here just in case the catSelected
-                // gets nulled for some reason.
-                Alert ad = new Alert(getResources().getString(R.string.err),
-                        getResources().getString(R.string.reqCat) +
-                                "\n" + getResources().getString(R.string.goBack) + "\n",
-                        this);
+                // inform category must be selected. It should have a default of Bakery products
+                Alert ad = new Alert(getResources()
+                        .getString(R.string.err), getResources()
+                        .getString(R.string.reqCat) + "\n" + getResources()
+                        .getString(R.string.goBack) + "\n", this);
                 ad.show();
             }
         }
@@ -130,7 +124,6 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
         recipeInstructions = Objects.requireNonNull(rInst).getText().toString(); // get textbox text
 
         // check fields are not blank
-
         if ("".equals(Objects.requireNonNull(recipeInstructions))) {
             errMsg += getResources().getString(R.string.reqInst) + "\n";
             isError = true;
@@ -181,7 +174,7 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
         // don't connect to db or try to add if no data (or missing data)
         if(!isError){
             // call AsyncTask to add recipe to database in background
-            //bgAddTask(recipeName, catSelected, recipeIngredients, recipeInstructions);
+            // bgAddTask(recipeName, catSelected, recipeIngredients, recipeInstructions);
             try {
                 RecipeDatabase rdb = new RecipeDatabase(this);
 
@@ -193,18 +186,18 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
             }
         }else{
             // inform user there's blank fields
-            Alert ad = new Alert(getResources().getString(R.string.err), errMsg +
-                    "\n" + getResources().getString(R.string.goBack), this);
+            Alert ad = new Alert(getResources()
+                    .getString(R.string.err), errMsg + "\n" + getResources()
+                    .getString(R.string.goBack), this);
             ad.show();
         }
-        // cleanup for .gc()
 
         if(!isError){
             finish();
         }
     }
 
-    // inner class
+
     private class CustomOnItemSelectedListener
             implements android.widget.AdapterView.OnItemSelectedListener {
         // get selected dropdown item into catSelected string
@@ -230,15 +223,13 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
                 finish();
                 return false;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // if we got here, the user's action was not recognized.
+                // invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    //-----------------------------------------------------------------------
-    // methods to track which form field has focus, so "Next" button can switch
-    // between them
+    // methods to track which form field has focus, so "Next" button can switch between them
     private final View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
         public void onFocusChange(View v, boolean hasFocus) {
             if (hasFocus){
@@ -248,8 +239,8 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
             }
         }
     };
+
     // move to next form field, or if finished, close keypad
-    // https://stackoverflow.com/questions/3400028/close-virtual-keyboard-on-button-press
     private void selectNextField(){
         if (curV == Objects.requireNonNull(nameTB)) {
             catSel.performClick();
@@ -269,8 +260,6 @@ public class RecipeAdmin extends Common implements View.OnClickListener {
         }
     }
 
-    // overrides Common.deleteRecipe() because it needs to exit the current activity
-    // from here
     @Override
     public void deleteRecipe(View v){
         Intent adminD = new Intent(this,DeleteRecipeActivity.class);

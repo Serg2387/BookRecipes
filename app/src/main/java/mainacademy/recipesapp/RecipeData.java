@@ -2,6 +2,7 @@ package mainacademy.recipesapp;
 
 // for loading and storing single records
 // may be used in arrays
+
 @SuppressWarnings("unused")
 public class RecipeData {
     // getters/setters not needed, used in arrays

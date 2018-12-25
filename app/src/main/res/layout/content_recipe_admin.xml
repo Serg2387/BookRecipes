@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +20,6 @@
     tools:showIn="@layout/activity_recipe_admin">
 
     <android.support.v7.widget.Toolbar
-
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -36,7 +36,6 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:subtitleTextColor="#A0A080"
         app:titleTextColor="#FFFFFF" />
-
 
     <ScrollView
         android:layout_width="0dp"
@@ -64,7 +63,6 @@
             android:textAlignment="center"
             android:verticalScrollbarPosition="right"
             android:visibility="visible"
-
             tools:layout_editor_absoluteX="16dp"
             tools:scrollbarStyle="insideOverlay">
 
@@ -101,12 +99,12 @@
                     android:text="@string/delfromlist"
                     android:background="@drawable/button_background"
                     android:textColor="@android:color/holo_red_dark" />
+
             </GridLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-
                 android:layout_margin="3dp"
                 android:fontFamily="sans-serif"
                 android:text="@string/recipeAdminTitle"
@@ -231,7 +229,8 @@
                 android:text="@string/addbtn"
                 android:theme="@style/Base.Widget.AppCompat.Button.Colored" />
 
-
         </LinearLayout>
+
     </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

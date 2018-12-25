@@ -1,11 +1,9 @@
 package mainacademy.recipesapp;
 
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -23,14 +21,12 @@ class RecipeDatabase {
     private final static String RECIPE_INST = "recipeInstructions";  // recipe instructions
 
     public RecipeDatabase(Context context){
-
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         database = dbHelper.getWritableDatabase();
     }
 
     // add recipe to database
-    public long AddRecord(String _rName, String _rCat,
-                          String _rIng, String _rInst){
+    public long AddRecord(String _rName, String _rCat, String _rIng, String _rInst){
         long result;
         ContentValues values = new ContentValues();
         // _id is autoincrement, so not needed
@@ -52,12 +48,11 @@ class RecipeDatabase {
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
-        return mCursor; // iterate to get each value.
+        // iterate to get each value
+        return mCursor;
     }
 
-    // get a single recipe record (by id)
-    // and return as a RecipeData object
-    // should run in background
+    // get a single recipe record (by id) and return as a RecipeData object
     public RecipeData GetRecord(int _id){
         // initialize a dummy record object
         RecipeData recipe = new RecipeData(_id,"ERROR1","ERROR1",
@@ -87,9 +82,9 @@ class RecipeDatabase {
     }
 
     // get list of recipe ids (for pager)
-    // should be run in background in AsyncTask
     public ArrayList<Integer> LoadIDList(String _cat){
         idList.clear();
+
         // fetch list of record ids (for pager activity)
         try {
             Cursor mCursor = database.rawQuery("SELECT _id FROM recipes WHERE recipeCategory='" + _cat + "'" ,
@@ -109,7 +104,6 @@ class RecipeDatabase {
     }
 
     // simple count of records in a category
-    //
     public int GetRecipeCount(String _cat){
         int count = 0;
         try {
@@ -141,24 +135,4 @@ class RecipeDatabase {
         return "";
     }
 
-    //-------------------------------------------------------
-    // included for testing purposes only, to prepopulate with
-    // some test data
-    /*
-    public void prePopulate(int qty){
-            Cursor tc = QueryAll();
-            if(tc.getCount() <= 0){
-                // insert some test records
-                String[] cats = new String[]{"Bakery","Main dishes","Salads","Soups"
-                };
-                int idx;
-                for(String str : cats){
-                    for(idx=0; idx < qty;idx++){
-                        AddRecord("Test " + (idx+1) + " " +  str,
-                                str, str + " Test Ingredients",str + " Test Instructions");
-                    }
-                }
-            }
-        }
-        /**/
 }

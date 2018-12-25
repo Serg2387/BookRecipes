@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -22,7 +21,7 @@ public class RecipePagerActivity extends Common {
     // create an array list to hold the list of recipe ids (DB _id)
     // will be used to page through the recipes one at a time
     private ArrayList<Integer> recipeIDList = new ArrayList<>();
-    private int currentID = 0; // current list index of recipeIDList(0..last)
+    private int currentID = 0;
 
     @Override
     protected void onDestroy(){
@@ -42,11 +41,10 @@ public class RecipePagerActivity extends Common {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         menuID = R.menu.pager_menu;
-
         setContentView(R.layout.activity_recipe_pager);
 
         // setup pager activity toolbar
-        Toolbar toolbar = findViewById(R.id.pagertoolbar); // uses pager_menu
+        Toolbar toolbar = findViewById(R.id.pagertoolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
         getSupportActionBar().setSubtitle(R.string.viewSubtitle);
@@ -67,8 +65,8 @@ public class RecipePagerActivity extends Common {
         rInstV = findViewById(R.id.recipeInstructions);
         rNumRecV = findViewById(R.id.numRecipes);
         ImageButton prBtn = findViewById(R.id.prevButton);
-        prBtn.setEnabled(false); // set < prev button disabled to start, because we'll load first
-        // record to start
+        prBtn.setEnabled(false);
+        // set < prev button disabled to start, because we'll load first record to start
     }
 
     @Override
@@ -93,7 +91,7 @@ public class RecipePagerActivity extends Common {
     private void updateRecipeData(RecipeData _rData){
         // set data into textviews
         if(_rData != null && !"".equals(_rData.recipeName) ) {
-            rCatV.setText(_rData.recipeCategory); // not really needed, but good to have
+            rCatV.setText(_rData.recipeCategory);
             rNameV.setText(_rData.recipeName);
             rIngV.setText(_rData.recipeIngredients);
             rInstV.setText(_rData.recipeInstructions);
@@ -108,7 +106,6 @@ public class RecipePagerActivity extends Common {
         rNumRecV.setText(tmp);
     }
 
-    //-------------------------------------------------------------------
     // load list of recipe ids into recipeIDList
     private void getRecipeIDS() {
         RecipeDatabase RDB = new RecipeDatabase(this);
@@ -116,9 +113,9 @@ public class RecipePagerActivity extends Common {
         try {
             recipeIDList.addAll(RDB.LoadIDList(_viewCategory));
             if (recipeIDList.size() <= 0) {
-                Alert ad = new Alert(getResources().getString(R.string.notice),
-                        getResources().getString(R.string.loadError),
-                        RecipePagerActivity.this);
+                Alert ad = new Alert(getResources()
+                        .getString(R.string.notice), getResources()
+                        .getString(R.string.loadError), RecipePagerActivity.this);
                 ad.showToast(RecipePagerActivity.this);
                 noneOnFile(); // if category empty return and disable < > buttons
             } else {
@@ -134,8 +131,7 @@ public class RecipePagerActivity extends Common {
     private void loadRecipe(int _id){
         RecipeData rDatatmp;
         RecipeDatabase RDB = new RecipeDatabase(RecipePagerActivity.this);
-        rDatatmp = new RecipeData(_id,"ERROR",
-                "ERROR","ERROR","ERROR");
+        rDatatmp = new RecipeData(_id,"ERROR", "ERROR","ERROR","ERROR");
         try {
             rDatatmp = RDB.GetRecord(_id);
 
@@ -149,8 +145,7 @@ public class RecipePagerActivity extends Common {
         updateRecipeData(rDatatmp);
     }
 
-    // load previous recipe from current category, if any
-    // < button click
+    // load previous recipe from current category, if any < button click
     public void previousRec(View v){
         String tmp;
         currentID--;
@@ -166,8 +161,7 @@ public class RecipePagerActivity extends Common {
         rNumRecV.setText(tmp);
     }
 
-    // load next recipe from current category, if any
-    // > button click
+    // load next recipe from current category, if any > button click
     public void nextRec(View v){
         String tmp;
         currentID++;
